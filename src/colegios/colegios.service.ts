@@ -25,8 +25,9 @@ export class ColegiosService {
     return this.colegioRepository.findOne({ where: { id } });
   }
 
-  update(id: number, updateColegioDto: UpdateColegioDto) {
-    return this.colegioRepository.update(id, updateColegioDto);
+  async update(id: number, updateColegioDto: UpdateColegioDto) {
+    await this.colegioRepository.update(id, updateColegioDto);
+    return this.colegioRepository.findOne({ where: { id } });
   }
 
   remove(id: number) {

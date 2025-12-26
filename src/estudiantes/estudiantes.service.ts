@@ -25,8 +25,9 @@ export class EstudiantesService {
     return this.estudianteRepository.findOne({ where: { id } });
   }
 
-  update(id: number, updateEstudianteDto: UpdateEstudianteDto) {
-    return this.estudianteRepository.update(id, updateEstudianteDto);
+  async update(id: number, updateEstudianteDto: UpdateEstudianteDto) {
+    await this.estudianteRepository.update(id, updateEstudianteDto);
+    return this.estudianteRepository.findOne({ where: { id } });
   }
 
   remove(id: number) {
