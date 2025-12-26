@@ -30,7 +30,9 @@ export class EstudiantesService {
     return this.estudianteRepository.findOne({ where: { id } });
   }
 
-  remove(id: number) {
-    return this.estudianteRepository.delete(id);
+  async remove(id: number) {
+    const estudiante = await this.estudianteRepository.findOne({ where: { id } });
+    await this.estudianteRepository.delete(id);
+    return { message: 'Estudiante eliminado exitosamente', estudiante };
   }
 }

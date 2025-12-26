@@ -30,7 +30,9 @@ export class ColegiosService {
     return this.colegioRepository.findOne({ where: { id } });
   }
 
-  remove(id: number) {
-    return this.colegioRepository.delete(id);
+  async remove(id: number) {
+    const colegio = await this.colegioRepository.findOne({ where: { id } });
+    await this.colegioRepository.delete(id);
+    return { message: 'Colegio eliminado exitosamente', colegio };
   }
 }
