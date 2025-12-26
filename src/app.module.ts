@@ -12,10 +12,10 @@ import { EstudiantesModule } from './estudiantes/estudiantes.module';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'root',
+      password: '',
       database: 'sistema_educativo',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, // Solo para desarrollo - crea las tablas automáticamente
+      synchronize: true,
     }),
     ColegiosModule,
     EstudiantesModule,
