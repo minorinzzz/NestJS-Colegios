@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ColegiosModule } from './colegios/colegios.module';
+import { EstudiantesModule } from './estudiantes/estudiantes.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { ColegiosModule } from './colegios/colegios.module';
       synchronize: true, // Solo para desarrollo - crea las tablas automáticamente
     }),
     ColegiosModule,
+    EstudiantesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
